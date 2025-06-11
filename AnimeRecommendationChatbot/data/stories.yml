@@ -1,0 +1,144 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_info
+  - intent: inquire_anime
+  - action: action_fetch_anime
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_info
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_info
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: recommend anime with raitngs
+  steps:
+  - intent: inquire_anime
+    entities:
+    - genre: Action
+    - rating: '9'
+  - slot_was_set:
+    - genre: Action
+  - slot_was_set:
+    - rating: '9'
+  - action: action_fetch_anime
+
+- story: Recommend anime with rating and episodes
+  steps:
+  - intent: inquire_anime
+    entities:
+    - episodes: '12'
+    - rating: '9'
+  - slot_was_set:
+    - episodes: '12'
+    - rating: '9'
+  - action: action_fetch_anime
+  - intent: inquire_anime
+    entities:
+    - episodes: '25'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - episodes: '25'
+  - slot_was_set:
+    - episodes: '25'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - episodes: '13'
+  - slot_was_set:
+    - episodes: '13'
+  - action: action_fetch_anime
+  - intent: inquire_anime
+    entities:
+    - episodes: '22'
+  - slot_was_set:
+    - episodes: '22'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - episodes: '12'
+    - rating: '8.73'
+  - slot_was_set:
+    - rating: '8.73'
+  - slot_was_set:
+    - episodes: '12'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - category: movie
+  - slot_was_set:
+    - category: movie
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - genre: samurai
+  - action: action_fetch_anime
+  - intent: inquire_anime
+    entities:
+    - genre: Action
+  - slot_was_set:
+    - genre:
+      - Action
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - genre: Fantasy
+    - rating: '9'
+    - episodes: '12'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - episodes: '24'
+    - rating: '9'
+  - action: action_fetch_anime
+
+- story: interactive_story_1
+  steps:
+  - intent: inquire_anime
+    entities:
+    - rating: '9'
+    - episodes: '39'
+  - action: action_fetch_anime

@@ -1,0 +1,165 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - hey, I am [Sato](PERSON)
+      - hello, I am [John](PERSON)
+      - hi, my name is [Kyle](PERSON)
+      - hello there, my name is [Susan](PERSON)
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+      - hello
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+  - intent: inquire_action
+    examples: |
+      - Show me Custom actions.
+      - Custom actions
+      - Actions
+  - intent: inquire_anime
+    examples: |
+      - recommend anime [movie](category)
+      - [Movie](category) anime
+      - [TV](category) anime with [12](episodes) episodes
+      - recommend [TV](category) anime with [Shounen](genre) genre
+      - Recommend [Action](genre), [Comedy](genre) anime
+      - Recommend [Action](genre) anime with [10](rating) score
+      - Give rating [9](rating) [Romance](genre) anime
+      - I would like [Adventure](genre) anime
+      - I would like a recommendation of [Comedy](genre) anime
+      - Give me [Sci-Fi](genre) genre anime
+      - Recommend [fantasy]{"entity": "genre", "value": "Fantasy"} anime
+      - Score [8](rating) anime
+      - Recommend [Thriller]{"entity": "genre", "value": "Thriller"} anime with [10](rating) rating
+      - recommend [parody](genre) anime with [7](rating) rating
+      - Recommend an anime with [14](episodes) episodes and rating of [8](rating)
+      - [25](episodes) episodes anime with a rating of [9](rating)
+      - [24](episdes) episodes [SliceofLife](genre) anime
+      - I would like [Drama](genre) anime with [24](episodes) episodes with rating of [9](rating)
+      - Rating [7](rating) anime with [13](episodes)eps
+      - recommend anime with [12](episodes) episodes
+      - Can you provide me anime with [39](episodes) episodes and [9](rating) rating
+      - recommend [25](episodes) eps anime
+      - recommend anime with [24](episodes) eps
+      - recommend [13](episodes) episodes anime with a rating of [8.73](rating)
+      - recommend [movie](category) anime
+      - Hi, I would like a recommendation of [samurai](genre) anime
+      - recommend [fantasy]{"entity": "genre", "value": "Fantasy"} anime with rating [9](rating) and [12](episodes) episodes
+      - Can u give anime that has [43](episodes) episodes and [8.73](rating) rating
+      - recommend anime with [24](episodes) episodes and [9](rating) rating
+      - I am thinking about an anime with [7](rating) rating and [12](episodes) episodesy
+      - Anime with [9](rating) rating and [39](episodes) episodes
+      - I would like [supernatural](genre) and [historical](genre) anime
+      - Can u give me anime that has [military](genre) and [seinen](genre) anime
+      - [Magic](genre) [Space](genre) anime please
+      - Recommend me [mecha](genre) and [sports](genre) anime
+      - [Psychological](genre) [Mystery](genre) anime with rating of [8.5](rating)
+      - [Shoujo](genre) and [Josei](genre) with [12](episodes) eps
+      - I am thinking about [Horror](genre) [Ecchi](genre) anime
+      - Maybe [music](genre) and [school](genre) aniem that have rating at least [8.2](rating)
+      - Can you recommend me [kids](genre) [SuperPower](genre) anime
+      - Hello, anime that has [harem](genre) with [8.6](rating) rating and [12](episodes) episodes.
+  - intent: inquire_another_anime
+    examples: |
+      - recommend another anime
+      - give me another one with the same conditions
+      - I would like another as i have seen it
+      - Can u give me another recommendation
+      - another please
+  - synonym: Fantasy
+    examples: |
+      - fantasy
+  - synonym: Romance
+    examples: |
+      - romance
+  - synonym: Action
+    examples: |
+      - action
+
+# - lookup: rating
+#   examples: |
+#     - 1
+#     - 2
+#     - 3
+#     - 4
+#     - 5
+#     - 6
+#     - 7
+#     - 8
+#     - 8.73
+#     - 9
+#     - 9.25
+#     - 9.5
+#     - 10

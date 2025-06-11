@@ -1,0 +1,96 @@
+version: "3.1"
+intents:
+  - affirm
+  - bot_challenge
+  - deny
+  - goodbye
+  - greet
+  - inquire_action
+  - inquire_anime
+  - inquire_another_anime
+  - mood_great
+  - mood_unhappy
+entities:
+  - episodes
+  - rating
+  - genre
+  - category
+  - PERSON
+slots:
+  PERSON:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: PERSON
+  genre:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: genre
+  rating:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: rating
+  category:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: category
+  episodes:
+    type: float
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: episodes
+  REMgenre:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+  REMrating:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: custom
+  REMcategory:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+  REMepisodes:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: custom
+responses:
+  utter_greet:
+    - text: Hello, Nice to meet you
+    - text: Hi {PERSON}, nice to meet you
+  utter_info:
+    - text: You can request for anime recommendation by providing genres(up to 3), episodes, rating(9.5, 9.0, 8.0, format) and category(TV/Movie/OVA)
+  utter_cheer_up:
+    - text: "Here is something to cheer you up:"
+      image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+    - text: Did that help you?
+    - text: Did that help you, {PERSON}?
+  utter_happy:
+    - text: Great, carry on!
+    - text: Great {PERSON}, carry on!
+  utter_goodbye:
+    - text: Bye
+    - text: Bye {PERSON}
+  utter_iamabot:
+    - text: I am a bot, powered by Rasa.
+actions:
+  - action_fetch_anime
+  - utter_greet
+  - action_test
+  - action_fetch_another_anime
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
